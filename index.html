@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon Master · 亚马逊调研知识库导航</title>
+<style>
+  :root{
+    --paper:#faf8f3; --card:#ffffff; --ink:#26241f; --muted:#6f6a5e;
+    --line:#e4ded2; --accent:#2f5d50; --accent-soft:#e7efeb; --chip:#f1ede3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    line-height:1.65}
+  .wrap{max-width:960px;margin:0 auto;padding:28px 20px 64px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:20px}
+  h1{font-family:Georgia,"Songti SC","SimSun",serif;font-size:30px;line-height:1.3;margin:0 0 8px;font-weight:600}
+  header p{margin:4px 0;color:var(--muted);font-size:15px}
+  .counts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .count{background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:4px 14px;font-size:13px;color:var(--ink)}
+  .count b{color:var(--accent)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px;margin:18px 0}
+  .panel label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  input[type="search"],select{width:100%;padding:10px 12px;font-size:15px;
+    border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+  input[type="search"]:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .filters{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:12px}
+  @media (max-width:640px){.filters{grid-template-columns:1fr}}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px}
+  #result-count{font-size:14px;color:var(--muted)}
+  button.clear{border:1px solid var(--line);background:#fff;border-radius:999px;
+    padding:6px 16px;font-size:14px;cursor:pointer;color:var(--ink)}
+  button.clear:hover{border-color:var(--accent);color:var(--accent)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .tag{border:1px solid var(--line);background:var(--chip);border-radius:999px;
+    padding:4px 12px;font-size:13px;cursor:pointer;color:var(--ink)}
+  .tag[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+  h2.domain{font-family:Georgia,"Songti SC","SimSun",serif;font-size:22px;margin:32px 0 4px}
+  h2.domain small{font-size:14px;color:var(--muted);font-family:inherit;margin-left:8px}
+  h3.category{font-size:17px;margin:20px 0 2px}
+  h3.category small{color:var(--muted);font-weight:400;margin-left:6px;font-size:13px}
+  h4.topic{font-size:14px;color:var(--accent);margin:14px 0 8px;font-weight:600}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;margin:10px 0}
+  .card h5{margin:0 0 4px;font-size:16px;line-height:1.5}
+  .card h5 a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+  .card h5 a:hover{color:var(--accent)}
+  .card .path{font-size:12px;color:var(--muted);margin:0 0 6px;word-break:break-all}
+  .card .summary{margin:0 0 8px;font-size:14px;color:#44403a}
+  .card .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .card .meta .tag{font-size:12px;padding:2px 10px}
+  .card .date{font-size:12px;color:var(--muted);margin-left:auto}
+  .latest{margin:0;padding-left:20px}
+  .latest li{margin:4px 0;font-size:14px}
+  .latest a{color:var(--ink)}
+  .empty{border:1px dashed var(--line);border-radius:10px;padding:24px;text-align:center;color:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;
+    font-size:13px;color:var(--muted)}
+  footer a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Amazon Master · 亚马逊调研知识库导航</h1>
+    <p>集中收录亚马逊选品、产品研究相关的 HTML 报告与交互工具。原 Qingyuanshan 仓库的亚马逊内容已于 2026-11-23 整体迁移至此。</p>
+    <p>按 README 的三级结构归档：大领域 → 品类 → 具体研究方向，点击标题在线阅读。</p>
+    <div class="counts" id="counts"></div>
+  </header>
+
+  <section class="panel" aria-label="筛选">
+    <label for="search">搜索报告（标题、简介、标签、路径都可搜）</label>
+    <input type="search" id="search" placeholder="例如：喷泉 利润、耳环、D专利、DMCA" autocomplete="off">
+    <div class="filters">
+      <div><label for="domain">大领域</label><select id="domain"></select></div>
+      <div><label for="category">品类 / 管理分类</label><select id="category"></select></div>
+      <div><label for="topic">研究方向</label><select id="topic"></select></div>
+    </div>
+    <div class="tags" id="tag-chips" aria-label="按标签筛选"></div>
+    <div class="row">
+      <span id="result-count"></span>
+      <button class="clear" id="clear-filters" type="button">清除筛选</button>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="最近更新">
+    <label>最近更新的 5 篇</label>
+    <ol class="latest" id="latest"></ol>
+  </section>
+
+  <main id="reports" aria-live="polite"></main>
+
+  <footer>
+    <p>数据来源：仓库 <a href="https://github.com/JessPinkmam/Amazon_Master" target="_blank" rel="noopener">JessPinkmam/Amazon_Master</a> 的 reports.json。报告、分类和更新日期随索引更新。</p>
+  </footer>
+</div>
+
+<script>
+let REPORTS = [];
+
+const searchEl = document.getElementById("search");
+const domainEl = document.getElementById("domain");
+const categoryEl = document.getElementById("category");
+const topicEl = document.getElementById("topic");
+const reportsEl = document.getElementById("reports");
+const countEl = document.getElementById("result-count");
+const chipsEl = document.getElementById("tag-chips");
+let activeTag = "";
+
+function urlFor(r){ return r.path.split("/").map(encodeURIComponent).join("/"); }
+function norm(s){ return s.normalize("NFKC").toLocaleLowerCase("zh-CN"); }
+
+function fillOptions(select, values, placeholder){
+  select.replaceChildren(new Option(placeholder, ""));
+  for (const v of [...new Set(values)]) select.add(new Option(v, v));
+}
+function updateCategories(){
+  const m = REPORTS.filter(r => !domainEl.value || r.domain === domainEl.value);
+  fillOptions(categoryEl, m.map(r => r.category), "全部分类");
+  updateTopics();
+}
+function updateTopics(){
+  const m = REPORTS.filter(r =>
+    (!domainEl.value || r.domain === domainEl.value) &&
+    (!categoryEl.value || r.category === categoryEl.value));
+  fillOptions(topicEl, m.map(r => r.topic), "全部方向");
+}
+
+function render(){
+  const terms = norm(searchEl.value).trim().split(/\s+/).filter(Boolean);
+  const matching = REPORTS.filter(r => {
+    const text = norm([r.title, r.summary, r.domain, r.category, r.topic, r.path, ...r.tags].join(" "));
+    return (!domainEl.value || r.domain === domainEl.value) &&
+      (!categoryEl.value || r.category === categoryEl.value) &&
+      (!topicEl.value || r.topic === topicEl.value) &&
+      (!activeTag || r.tags.includes(activeTag)) &&
+      terms.every(t => text.includes(t));
+  });
+  countEl.textContent = "显示 " + matching.length + " / " + REPORTS.length + " 篇报告";
+  reportsEl.replaceChildren();
+  if (!matching.length){
+    const d = document.createElement("div");
+    d.className = "empty";
+    d.textContent = "没有符合筛选的报告，换个关键词或清除筛选再试。";
+    reportsEl.append(d);
+    return;
+  }
+  const domains = [...new Set(matching.map(r => r.domain))];
+  for (const d of domains){
+    const inDomain = matching.filter(r => r.domain === d);
+    const h2 = document.createElement("h2");
+    h2.className = "domain";
+    h2.textContent = d;
+    const s = document.createElement("small");
+    s.textContent = inDomain.length + " 篇";
+    h2.append(s);
+    reportsEl.append(h2);
+    for (const c of [...new Set(inDomain.map(r => r.category))]){
+      const inCat = inDomain.filter(r => r.category === c);
+      const h3 = document.createElement("h3");
+      h3.className = "category";
+      h3.textContent = c;
+      const cs = document.createElement("small");
+      cs.textContent = inCat.length + " 篇";
+      h3.append(cs);
+      reportsEl.append(h3);
+      for (const t of [...new Set(inCat.map(r => r.topic))]){
+        const h4 = document.createElement("h4");
+        h4.className = "topic";
+        h4.textContent = t;
+        reportsEl.append(h4);
+        for (const r of inCat.filter(x => x.topic === t)){
+          const card = document.createElement("article");
+          card.className = "card";
+          const h5 = document.createElement("h5");
+          const a = document.createElement("a");
+          a.href = urlFor(r); a.textContent = r.title;
+          a.target = "_blank"; a.rel = "noopener";
+          h5.append(a);
+          const p = document.createElement("p");
+          p.className = "path"; p.textContent = r.path;
+          const sum = document.createElement("p");
+          sum.className = "summary"; sum.textContent = r.summary;
+          const meta = document.createElement("div");
+          meta.className = "meta";
+          for (const tag of r.tags){
+            const b = document.createElement("button");
+            b.type = "button"; b.className = "tag"; b.textContent = tag;
+            b.setAttribute("aria-pressed", String(activeTag === tag));
+            b.addEventListener("click", () => {
+              activeTag = activeTag === tag ? "" : tag;
+              syncChips(); render();
+            });
+            meta.append(b);
+          }
+          const date = document.createElement("span");
+          date.className = "date";
+          date.textContent = "报告更新于 " + r.updated_at;
+          meta.append(date);
+          card.append(h5, p, sum, meta);
+          reportsEl.append(card);
+        }
+      }
+    }
+  }
+}
+
+function syncChips(){
+  for (const b of chipsEl.querySelectorAll(".tag")){
+    b.setAttribute("aria-pressed", String(b.textContent === activeTag));
+  }
+}
+function buildChips(){
+  const tags = [...new Set(REPORTS.flatMap(r => r.tags))];
+  for (const tag of tags){
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "tag"; b.textContent = tag;
+    b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", () => {
+      activeTag = activeTag === tag ? "" : tag;
+      syncChips(); render();
+    });
+    chipsEl.append(b);
+  }
+}
+function buildCounts(){
+  const domains = new Set(REPORTS.map(r => r.domain)).size;
+  const cats = new Set(REPORTS.map(r => r.category)).size;
+  const topics = new Set(REPORTS.map(r => r.topic)).size;
+  const el = document.getElementById("counts");
+  for (const [n, label] of [[REPORTS.length, "篇报告"], [domains, "个领域"], [cats, "个二级分类"], [topics, "个研究方向"]]){
+    const s = document.createElement("span");
+    s.className = "count";
+    s.innerHTML = "";
+    const b = document.createElement("b"); b.textContent = n;
+    s.append(b, document.createTextNode(" " + label));
+    el.append(s);
+  }
+}
+function buildLatest(){
+  const latest = [...REPORTS].sort((a, b) =>
+    b.updated_at.localeCompare(a.updated_at) || a.title.localeCompare(b.title, "zh-CN")).slice(0, 5);
+  const ol = document.getElementById("latest");
+  for (const r of latest){
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = urlFor(r); a.textContent = r.title;
+    a.target = "_blank"; a.rel = "noopener";
+    li.append(a, document.createTextNode("（" + r.updated_at + "）"));
+    ol.append(li);
+  }
+}
+function clearFilters(){
+  searchEl.value = ""; domainEl.value = ""; activeTag = "";
+  syncChips(); updateCategories(); render();
+}
+
+searchEl.addEventListener("input", render);
+domainEl.addEventListener("change", () => { updateCategories(); render(); });
+categoryEl.addEventListener("change", () => { updateTopics(); render(); });
+topicEl.addEventListener("change", render);
+document.getElementById("clear-filters").addEventListener("click", clearFilters);
+
+async function loadReports(){
+  countEl.textContent = "正在加载报告…";
+  try {
+    const response = await fetch("reports.json");
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    const data = await response.json();
+    if (!Array.isArray(data.reports)) throw new Error("报告索引格式不正确");
+    REPORTS = data.reports;
+    buildCounts(); buildChips(); buildLatest();
+    fillOptions(domainEl, REPORTS.map(r => r.domain), "全部领域");
+    updateCategories();
+    render();
+  } catch (error) {
+    countEl.textContent = "报告加载失败";
+    reportsEl.textContent = "无法读取 reports.json。请检查网络连接；本地预览请通过 HTTP 服务器打开。";
+    reportsEl.className = "empty";
+    console.error("报告索引加载失败:", error);
+  }
+}
+loadReports();
+</script>
+</body>
+</html>
