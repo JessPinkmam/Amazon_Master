@@ -138,7 +138,7 @@
 
 | 报告 | 内容 | 标签 | 文件 |
 | --- | --- | --- | --- |
-| [亚马逊选品研究手册 · 从行业趋势到首批测款](https://jesspinkmam.github.io/Amazon_Master/%E9%80%9A%E7%94%A8%E9%80%89%E5%93%81/%E9%80%89%E5%93%81%E6%96%B9%E6%B3%95/market-selection-fieldguide.html) | 挖掘买家需求、衡量痛点与支付意愿，对照趋势、行业评分和单款回本门槛，导出研究卡。 | `选品` `趋势调研` `行业评估` | [源码](通用选品/选品方法/market-selection-fieldguide.html) |
+| [亚马逊选品研究手册 · 从行业趋势到首批测款](https://jesspinkmam.github.io/Amazon_Master/%E9%80%9A%E7%94%A8%E9%80%89%E5%93%81/%E9%80%89%E5%93%81%E6%96%B9%E6%B3%95/market-selection-fieldguide.html) | 从购买者、使用者与替代品的关系界定市场，通过情境对照检验需求，再用趋势、行业评估与回本测算决定首批投入。 | `选品` `趋势调研` `行业评估` | [源码](通用选品/选品方法/market-selection-fieldguide.html) |
 | [亚马逊选品方法论](https://jesspinkmam.github.io/Amazon_Master/%E9%80%9A%E7%94%A8%E9%80%89%E5%93%81/%E9%80%89%E5%93%81%E6%96%B9%E6%B3%95/amazon-xuanpin-fangfalun.html) | 选品框架、案例、评分器及测款方法。 | `亚马逊` `选品` `方法论` | [源码](通用选品/选品方法/amazon-xuanpin-fangfalun.html) |
 
 #### 新手带教
