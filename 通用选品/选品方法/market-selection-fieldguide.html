@@ -11,17 +11,31 @@ details{padding:0 16px;margin:9px 0}summary{cursor:pointer;padding:13px 0;font-w
 @media(max-width:700px){header{padding:16px 0}.cover{grid-template-columns:1fr;gap:20px;padding:21px;border-radius:14px}.mast>div{height:50px}.crumb{font-size:.74rem}.figure{padding:14px 16px}.fighead{font-size:.88rem}#coverPlot{height:110px}.wrap,.layout,.mast>div{width:92%}.intro>p:not(.overline){margin:10px 0 13px}.overline{margin-bottom:6px}.side a{font-size:.85rem}.grid{grid-template-columns:1fr}.inputs,.metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.criterion{grid-template-columns:1fr;gap:9px}.scroll table{min-width:610px}.box{padding:15px 16px}.box .symbol{float:right;margin-left:8px}.box h3{margin:0}.chart{gap:1px}.pair{gap:1px}.month{font-size:.66rem}}
 @media print{nav,.mast,.intro .actions,button,.fighead a{display:none}.wrap,.layout{width:100%}.layout,.cover{display:block}section{padding:12px 0}.figure{display:none}.scroll{overflow:visible}.scroll table{min-width:0}.box,details{break-inside:avoid}.side{display:none}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 #relOutcome{background:#f0edf4;border-radius:9px;padding:15px 18px;margin-top:9px}#relOutcome h3{margin-top:0}#relOutcome dl{display:grid;grid-template-columns:minmax(7em,auto) 1fr;gap:7px 17px;margin:0}#relOutcome dt{font-weight:650;color:var(--accent)}#relOutcome dd{margin:0}@media(max-width:650px){#relOutcome dl{display:block}#relOutcome dt{margin-top:9px}}
+.roleMatrix{margin:0 0 16px}.roleMatrix table{min-width:670px;table-layout:fixed}.roleMatrix th:first-child{width:6em}.roleMatrix tbody th{border-top:1px solid var(--line)}.roleMatrix label{font-weight:500}.roleMatrix textarea{font-size:.91rem;margin-bottom:0}
 </style></head><body><div class="mast"><div><a class="back" href="../../index.html">← Amazon Master 知识库</a><span class="crumb">通用选品 / 选品方法</span></div></div>
-<header class="wrap"><div class="cover"><div class="intro"><p class="overline">美国站 · 从行业趋势到首批测款</p><h1>选品研究手册</h1><p>谁在选，跟什么比，什么算值得？先看商品在一组关系里占了什么位置，再查需求、估销量、算回本。</p><div class="actions"><a class="action" href="#logic">从市场结构开始 <span aria-hidden="true">↗</span></a><a class="action secondary" href="#model">测算单款回本</a></div></div>
+<header class="wrap"><div class="cover"><div class="intro"><p class="overline">美国站 · 从行业趋势到首批测款</p><h1>选品研究手册</h1><p>谁发起，谁决定，谁接受？先判断矛盾发生在产品、人还是社会层面，再决定值得做一件什么样的产品。</p><div class="actions"><a class="action" href="#logic">从角色与痛点开始 <span aria-hidden="true">↗</span></a><a class="action secondary" href="#model">测算单款回本</a></div></div>
 <figure class="figure"><figcaption class="fighead"><span id="coverCaption">月度需求对照 · 演示数据</span><a href="#trendEditor">编辑数据 ↗</a></figcaption><canvas id="coverPlot" aria-label="两年十二个月需求对照，数值可在趋势调研中查看"></canvas><div class="figfoot"><span><i></i>上年 <i class="current"></i>本年</span><span id="coverGrowth"></span></div></figure></div></header>
-<div class="layout"><nav class="side" aria-label="本页目录"><b>手册目录</b><a href="#logic">市场结构</a><a href="#demand">需求调研</a><a href="#trend">趋势调研</a><a href="#market">行业评估</a><a href="#model">单款测算</a><a href="#channels">选品渠道</a><a href="#memo">立项模板</a></nav><main>
-<section id="logic"><h2>商品的价值由哪些关系决定？</h2>
-<p>两个人都在看同一台桌面喷泉。一个人在给自己的书房挑背景水声，另一个人在给刚入职的朋友挑礼物。前者可能转身下载白噪音 App，后者可能改买一盏书灯。如果只采集喷泉类目的 ASIN，这两笔丢掉的订单都看不见。</p>
-<p>先把一个具体选择当作研究单位，写出参与者、替代方案和判断标准。比较两个情境时，保留相同的条件，只改变一项关系，观察哪些选择随之变化、哪些约束依旧成立。下文将这种关系分析用于选品；课程背景可参阅 <a href="https://openstax.org/books/introduction-anthropology/pages/3-5-modes-of-cultural-analysis">OpenStax《文化分析的方法》</a>。</p>
-<div class="board" id="relExperiment"><h3>换一个关系，再看同一件商品</h3><p>教学推演。固定美国站、约 35 美元、同一款喷泉和非促销时段。从基准「自用 · 私人书房」出发，先改一个条件，再看两种变化叠加后会出现什么约束。</p>
+<div class="layout"><nav class="side" aria-label="本页目录"><b>手册目录</b><a href="#logic">角色与痛点</a><a href="#demand">需求调研</a><a href="#trend">趋势调研</a><a href="#market">行业评估</a><a href="#model">单款测算</a><a href="#channels">选品渠道</a><a href="#memo">立项模板</a></nav><main>
+<section id="logic"><h2>需求的结构：谁发起，谁决定，谁接受？</h2>
+<p>先把商品名拿掉。一次行动有一个起点，一次取舍，一个由他人或自己承接的结果。选品要追问：什么让行动发生，什么决定方案被选中，什么又决定它最后有价值？三处答案可能来自三个人。</p>
+<div class="grid"><article class="box"><h3>发起者</h3><p>把一种愿望或处境变成行动的人。</p><p><strong>为什么在此刻提出？如果什么都不做，会失去什么？</strong></p></article><article class="box"><h3>决策者</h3><p>制定取舍标准、有权选定或否决方案的人。</p><p><strong>哪些条件可以妥协？谁的不同意会让事情停下来？</strong></p></article><article class="box"><h3>接受者</h3><p>承接行动结果、解释其意义并承担后果的人。</p><p><strong>收到以后如何理解、处置或拒绝？接受的代价由谁承担？</strong></p></article></div>
+<p>这三个词指关系中的位置。同一人可以同时占三个位置，一个位置也可以由多人共同承担。付款、下单和最终使用还可以另有人负责。例如同事提议集体送礼，团队共同定预算，一人代付，新人收礼。订单只留下代付者，研究却要找到另外几个声音。</p>
+<h3>痛点发生在哪一层？</h3><div class="scroll"><table><thead><tr><th>层次</th><th>如何辨认</th><th>什么证据有解释力</th></tr></thead><tbody><tr><td>产品的痛点</td><td>矛盾落在物与任务的适配上。同一个人、同一种关系，换一种材料、结构、包装或服务，问题是否减轻？</td><td>看同条件实测的失败次数、耗时、破损或维护负担。</td></tr><tr><td>人的痛点</td><td>矛盾落在行动者的愿望与能力之间。即使功能达标，他是否仍因判断困难、时间不足、担心选错或难以表达心意而受阻？</td><td>回访最近一次取舍，记录犹豫、放弃、闲置的理由和行为。</td></tr><tr><td>社会的痛点</td><td>矛盾落在共同规则、资源分配与公共后果上。谁有决定权，谁承担代价？换一批人，谁仍会被相同规则排除或迫使承担成本？</td><td>比较不同群体或规则下的参与、退出和负担；记录未购买、未发声及受波及的人。</td></tr></tbody></table></div>
+<p class="callout">需求也可能始于愿望。一个人发起送礼，可能只是想让新同事感到受欢迎。先记录这份愿望，再查实现它的过程中哪里发生冲突。三个层次可能并存，也可以只有一层有证据。</p>
+<h3>用一份礼物检验三层解释</h3><p>假设团队送出一份欢迎礼，新人收下却一直没用。单凭“闲置”，还不能决定下一款要改什么。</p>
+<div class="grid"><article class="box"><h3>若是物的问题</h3><p>礼物太大，桌面放不下。让同一接受者试用更合适的尺寸，观察是否愿意留下。成立时，产品方向是缩小体积。</p></article>
+<article class="box"><h3>若是人的问题</h3><p>尺寸合适，决策者却猜错了新人的喜好。让接受者在相同预算内自己挑；若选择明显改变，可测试可选款式或换礼服务。</p></article>
+<article class="box"><h3>若是社会的问题</h3><p>新人担心拒收显得不合群，参与者也难以拒绝分摊。比较公开摊派和自愿参与时的选择，并分别听取退出者与收礼者的说法。若压力来自惯例，更昂贵的礼盒可能加重负担。</p></article></div>
+<p>三层解释会导向三种行动：改物、重新分配选择权、改变集体规则。第三种甚至可能让团队用一张共同签名的欢迎卡完成心意。删去商品之后，若目标仍然成立，那个目标才值得继续研究。</p>
+<div class="board" id="roleWorksheet"><h3>用自己的项目填一遍</h3><p>先填真实人物或群体，再展开矩阵，只记录与你的决定有关的格子。一个说法配一条观察，缺证据的格子留空。</p>
+<div class="grid"><label>发起者<textarea id="roleInitiator" placeholder="谁提出这件事？希望改变什么？"></textarea></label><label>决策者<textarea id="roleDecider" placeholder="谁能定标准、拍板或否决？"></textarea></label><label>接受者<textarea id="roleRecipient" placeholder="谁承接结果？能否拒绝或改变用途？"></textarea></label></div>
+<details><summary>展开三种角色 × 三层痛点的研究矩阵</summary><div class="scroll roleMatrix"><table><thead><tr><th scope="col">痛点所在</th><th scope="col">发起者</th><th scope="col">决策者</th><th scope="col">接受者</th></tr></thead><tbody><tr><th scope="row">产品的痛点</th><td><label for="painProductInitiator">现有物品能否承载发起者要完成的事？</label><textarea id="painProductInitiator" aria-label="产品的痛点 · 发起者" placeholder="观察或原话；未知可留空"></textarea></td><td><label for="painProductDecider">面对发起者的意图，决策者能否辨认哪种方案真正适配？</label><textarea id="painProductDecider" aria-label="产品的痛点 · 决策者" placeholder="观察或原话；未知可留空"></textarea></td><td><label for="painProductRecipient">物品交付后，接受者能否使用、摆放、维护或处置？</label><textarea id="painProductRecipient" aria-label="产品的痛点 · 接受者" placeholder="观察或原话；未知可留空"></textarea></td></tr><tr><th scope="row">人的痛点</th><td><label for="painPersonInitiator">发起者想表达什么，却缺少时间、语言或把握？</label><textarea id="painPersonInitiator" aria-label="人的痛点 · 发起者" placeholder="观察或原话；未知可留空"></textarea></td><td><label for="painPersonDecider">决策者担心选错什么，愿意以什么代价降低不确定性？</label><textarea id="painPersonDecider" aria-label="人的痛点 · 决策者" placeholder="观察或原话；未知可留空"></textarea></td><td><label for="painPersonRecipient">接受者的偏好、尊严或自主性是否得到照顾？</label><textarea id="painPersonRecipient" aria-label="人的痛点 · 接受者" placeholder="观察或原话；未知可留空"></textarea></td></tr><tr><th scope="row">社会的痛点</th><td><label for="painSocietyInitiator">谁有资格发起，谁会因惯例或费用被排除？</label><textarea id="painSocietyInitiator" aria-label="社会的痛点 · 发起者" placeholder="观察或原话；未知可留空"></textarea></td><td><label for="painSocietyDecider">谁规定什么算得体、预算由谁出、异议能否改变决定？</label><textarea id="painSocietyDecider" aria-label="社会的痛点 · 决策者" placeholder="观察或原话；未知可留空"></textarea></td><td><label for="painSocietyRecipient">谁难以拒绝、被迫回礼，或替他人承担长期成本？</label><textarea id="painSocietyRecipient" aria-label="社会的痛点 · 接受者" placeholder="观察或原话；未知可留空"></textarea></td></tr></tbody></table></div></details>
+<small>填写内容随本机草稿保存，可在<a href="#memo">立项模板</a>导出。对社会层提出解释时，至少指出一项共同规则、一类承担代价的人和可比较的情境。</small></div>
+<details><summary>把框架用于具体商品：桌面喷泉的四种情境</summary><div class="board" id="relExperiment"><h3>换一个关系，再看同一件商品</h3><p>教学推演。固定美国站、约 35 美元、同一款喷泉和非促销时段。从基准「自用 · 私人书房」出发，先改一个条件，再看两种变化叠加后会出现什么约束。</p>
 <div class="grid"><label>谁为谁购买<select id="relBuyer"><option value="self">买给自己</option><option value="gift">买来送人</option></select></label><label>谁共享使用空间<select id="relPlace"><option value="private">私人书房</option><option value="shared">共享办公室</option></select></label></div>
 <div id="relOutcome" aria-live="polite"></div><p class="muted">四种情境都需要供电、维护和摆放空间。变化的是谁承担这些成本、谁有权接受它们。这里的预测需要用真实取舍和使用记录检验。</p></div>
-<h3>怎样界定一个市场</h3><div class="scroll"><table><thead><tr><th>要找的关系</th><th>现场问法</th><th>它会改变哪项选品决定</th></tr></thead><tbody>
+</details>
+<h3>从角色和矛盾划定市场边界</h3><div class="scroll"><table><thead><tr><th>要找的关系</th><th>现场问法</th><th>它会改变哪项选品决定</th></tr></thead><tbody>
 <tr><td>位置与规则</td><td>谁提出购买、谁付钱、谁长期使用？场地、平台或供应商能否让交易无法发生？</td><td>界定应访谈的人；把准入、到货日或 MOQ 等硬约束单列。</td></tr>
 <tr><td>意义与区分</td><td>同一外观对谁显得自然，对谁显得廉价？送礼的人如何判断它“拿得出手”？</td><td>找买家拿来作比较的具体风格和价位，形成可测试的造型、包装或展示假设。</td></tr>
 <tr><td>替代与互补</td><td>假如买不到这款，这笔预算会花到哪里？使用它还需要什么空间、配件或习惯？</td><td>扩大竞品池，区分同一预算的竞争者和帮助使用的配套品。</td></tr>
@@ -32,7 +46,7 @@ details{padding:0 16px;margin:9px 0}summary{cursor:pointer;padding:13px 0;font-w
 <h3>写下自己的关系假设</h3><p>先写出对照情境，再去找搜索词和竞品。把猜测与观察分开记录，后面的行业评分才有共同的样本边界。</p><div class="grid"><label>谁决定、谁付钱、谁使用，谁能否决？<textarea id="relations" placeholder="列出参与者及其关系；同一个人可以占据多个位置。"></textarea></label><label>买家如何判断“值得”？<textarea id="valueOrder" placeholder="写出两个会冲突的标准，以及谁更重视哪一个。"></textarea></label><label>什么能替代它？什么必须和它配合？<textarea id="compareSet" placeholder="写一个同类商品、一个跨品类方案、一个维持现状的选择，以及所需配套。"></textarea></label><label>改变哪个条件，会改变什么选择？<textarea id="structureChange" placeholder="固定产品和价格，只改一项关系。分别写出原情境、对照情境和预测。"></textarea></label><label>什么证据能区分两种解释？<textarea id="rivalEvidence" placeholder="记录观察、另一种解释、证据来源，以及哪种结果会推翻预测。"></textarea></label></div>
 <p class="callout">取舍随场景改变，去<a href="#demand">需求调研</a>找买家证据；取舍一致而销量波动，去<a href="#trend">趋势调研</a>查价格、曝光与季节；已找到需求却进不去，去<a href="#market">行业评估</a>和<a href="#model">单款测算</a>查渠道、交付和回本条件。</p></section>
 <section id="demand"><h2>需求调研与挖掘</h2>
-<p>沿用前面选定的两种情境，分别收集购买者、使用者和放弃购买者的证据。记录他们实际对照的方案，以及谁的判断决定了最后的选择。买家想得到什么结果、现在怎么解决、为什么愿意换？这一步要交付一条可以被推翻的产品假设，以及验证它所需的证据。</p>
+<p>沿用前面填写的角色与痛点。向发起者问上一次为什么开始，向决策者问最后放弃了什么，向接受者问事后如何处理。若怀疑共同规则造成负担，再访谈没有参与交易、却受它影响的人。买家想得到什么结果、现在怎么解决、为什么愿意换？这一步要交付一条可以被推翻的产品假设，以及验证它所需的证据。</p>
 <div class="grid"><article class="box"><h3>找触发点</h3><p>把搜索词、好评和问答放在一起读。记下是谁买、为谁用、什么时候买。审美、氛围和送礼体面感同样能驱动购买。</p></article>
 <article class="box"><h3>看实际取舍</h3><p>追问买家上一次选了什么、放弃了什么、实际多花了多少钱。记录买家自己加配件、绕过问题或退货的行为。</p></article>
 <article class="box"><h3>写验证条件</h3><p>把买家语言译成一项样品改动。写清对照款、使用环境、目标价格，以及什么结果会让你放弃这个方向。</p></article></div>
@@ -60,7 +74,7 @@ details{padding:0 16px;margin:9px 0}summary{cursor:pointer;padding:13px 0;font-w
 <details><summary>如何从演算走到采购决定</summary><p>示例广告前剩 $12，按 10% 转化率和 $0.70 CPC，每个广告单花 $7；广告订单占七成，全渠道平均每件贡献 $7.10。收回 $600 需售 85 件，三个月平均至少 29 件/月。可比新品普通月 40 件，基于这些假设可进入验证。</p><p>保持其他条件，将转化率改成 5%，平均每件只剩 $2.20，回本要求升至 91 件/月。此时原有 40 件/月不足以支撑首批决策。先验证与产品最相关词组的真实 CPC 和转化，再定采购量。</p></details>
 <div class="scroll"><table><thead><tr><th>品类切换</th><th>最先补哪项证据</th><th>会改变哪个决定</th></tr></thead><tbody><tr><td>桌面喷泉</td><td>同环境实录水声与泵声，实测飞溅并核对退货原因。</td><td>退货损耗、差异卖点能否兑现。</td></tr><tr><td>造型灯 / 节日礼品</td><td>把平时与节日的成交价、销量分开，排出最迟到仓日。</td><td>首批量、错季清货价。</td></tr><tr><td>服装</td><td>将父体拆到色码，核对尺码退货和最小补单量。</td><td>首发色码、滞销库存占款。</td></tr><tr><td>户外大件</td><td>用实包尺寸重量询价，计算一单破损或退运净损失。</td><td>包装、履约方式与可承受破损率。</td></tr></tbody></table></div></section>
 <section id="channels"><h2>从七个入口寻找候选款</h2><p>从任何渠道找到线索后，回到同一组对照。替代品假设可查预算流向和放弃购买者，礼物意义可分别访谈送礼者与收礼者，平台筛选效应可比较同款在不同入口的表现。几个工具若都复用同一条销量估算，只算一份证据。</p><div class="scroll"><table><thead><tr><th>选品思路</th><th>去哪里看</th><th>关注什么信号</th><th>下一步验证</th></tr></thead><tbody><tr><td>需求词</td><td>商机探测器、品牌分析、自有搜索词报告</td><td>同一场景的多个词导向相似商品</td><td>按用途聚类，在目标价位找多个真实成交样本。</td></tr><tr><td>竞品与新进入者</td><td>Best Sellers、New Releases、历史价格与排名</td><td>普通新链接也能在非促销周持续卖</td><td>保留失败样本，核对父子体、上架日期和降价记录。</td></tr><tr><td>买家痛点</td><td>跨品牌低星评论、问答、退货记录</td><td>买家反复提到同一个可改的具体问题</td><td>打样前写清验收办法，如同距离对比水声与泵声。</td></tr><tr><td>关联消费</td><td>搭配购买、替代品、相邻细分市场</td><td>同一买家会为一个任务购买另一种解决方案</td><td>验证替代品与主品的搜索结果和预算是否重叠，再决定套装或独立款。</td></tr><tr><td>站外场景</td><td>Google Trends、Pinterest、Reddit、线下零售</td><td>新用途或风格跨渠道出现</td><td>回到亚马逊核对词量、成交价和普通月订单；孤立爆帖只记观察。</td></tr><tr><td>供应链反推</td><td>现有工厂、展会、样品间、熟悉的材料工艺</td><td>共享模具或工艺可降低试错成本</td><td>询实价与小单MOQ，用买家任务反推规格，再对照竞品和可售条件。</td></tr><tr><td>自有经营数据</td><td>广告搜索词、客服记录、尺码退货、复购</td><td>现有产品反复丢掉同一种订单</td><td>优先验证一项可归因变更，如尺码、包材或灯光方案，逐项比较。</td></tr></tbody></table></div></section>
-<section id="memo"><h2>把判断写成一页立项卡</h2><p>每张卡研究一个市场和一个候选款。保留采集时间、站点、样本数，并注明数据属于后台实测、工具估算或经营假设。下载的 Markdown 包含关系假设、对照情境、需求假设、样本指标、趋势数据、八维证据、测算及行动。</p><div class="board"><div class="grid"><label>候选行业与款式<input id="candidate" placeholder="例如：美国站 · 书桌自用小型喷泉"></label><label>结论<select id="decision"><option>补数据</option><option>淘汰</option><option>小测</option><option>加注</option></select></label></div><label>买家、场景、价带与样本边界<textarea id="scope" placeholder="站点 / 购买触发点 / 纳入和排除哪些 ASIN / 数据日期"></textarea></label><label>趋势与竞品记录<textarea id="obs" placeholder="指标名和单位 / 来源 / 月份 / ASIN / 常态价与促销 / 排名 / 估算销量 / 异常"></textarea></label><label>首批风险与准入<textarea id="risk" placeholder="MOQ × 到岸成本 / 首批资金与可承受损失 / 清货净回收 / 可售文件 / 知识产权 / 断货与退货"></textarea></label><label>最便宜的验证与翻案条件<textarea id="action" placeholder="核心假设 / 试验方法 / 预算 / 样本要求 / 复盘日 / 达到什么结果会改变结论"></textarea></label><p class="muted">已知经济条件不成立 → 淘汰；缺关键报价或销量 → 补数据；有进入空间且首批风险可承受 → 小测；实测贡献与退货表现达到目标 → 加注。</p><div class="actions"><button id="download">下载本次研究卡</button><button id="blank" class="alt">下载空白模板</button><span id="saved" role="status"></span></div></div>
+<section id="memo"><h2>把判断写成一页立项卡</h2><p>每张卡研究一个市场和一个候选款。保留采集时间、站点、样本数，并注明数据属于后台实测、工具估算或经营假设。下载的 Markdown 包含三类角色、三层痛点矩阵、关系假设、对照情境、需求假设、样本指标、趋势数据、八维证据、测算及行动。</p><div class="board"><div class="grid"><label>候选行业与款式<input id="candidate" placeholder="例如：美国站 · 书桌自用小型喷泉"></label><label>结论<select id="decision"><option>补数据</option><option>淘汰</option><option>小测</option><option>加注</option></select></label></div><label>买家、场景、价带与样本边界<textarea id="scope" placeholder="站点 / 购买触发点 / 纳入和排除哪些 ASIN / 数据日期"></textarea></label><label>趋势与竞品记录<textarea id="obs" placeholder="指标名和单位 / 来源 / 月份 / ASIN / 常态价与促销 / 排名 / 估算销量 / 异常"></textarea></label><label>首批风险与准入<textarea id="risk" placeholder="MOQ × 到岸成本 / 首批资金与可承受损失 / 清货净回收 / 可售文件 / 知识产权 / 断货与退货"></textarea></label><label>最便宜的验证与翻案条件<textarea id="action" placeholder="核心假设 / 试验方法 / 预算 / 样本要求 / 复盘日 / 达到什么结果会改变结论"></textarea></label><p class="muted">已知经济条件不成立 → 淘汰；缺关键报价或销量 → 补数据；有进入空间且首批风险可承受 → 小测；实测贡献与退货表现达到目标 → 加注。</p><div class="actions"><button id="download">下载本次研究卡</button><button id="blank" class="alt">下载空白模板</button><span id="saved" role="status"></span></div></div>
 <h3>7 天和 14 天怎么复盘</h3><p>第 7 天先查点击来自哪些搜索词，核对曝光、点击率与点击成本。第 14 天看已完成归因的订单、转化率和单件贡献，同时保留售后观察期。每 ASIN $100 可作为自设广告测试上限；点击样本不足时，记录「未验证」并指出下一步最值得补的证据。</p>
 <h3>资料与延伸阅读</h3><p><a href="https://sell.amazon.com/tools/product-opportunity-explorer">Amazon 商机探测器</a> · <a href="https://sell.amazon.com/tools/amazon-brand-analytics">Amazon 品牌分析</a> · <a href="https://support.google.com/trends/answer/4365533">Google Trends 数据口径</a> · <a href="https://www.wearesellers.com/question/126868">非标品拆解链原帖</a> · <a href="amazon-xuanpin-fangfalun.html">库内《亚马逊选品方法论》</a></p><small>社区原帖提供拆解顺序；本手册的评分、案例数字与验证流程属于工作模板。趋势演示使用合成数据，实际项目请替换为同口径观测值。</small></section></main></div><footer>Amazon Master · 通用选品 / 选品方法</footer>
 <script>
@@ -242,10 +256,60 @@ function renderRelationship() {
   });
   byId('relOutcome').replaceChildren(title, list);
 }
+const rolePainNotes = [
+  [
+    "roleInitiator",
+    "发起者"
+  ],
+  [
+    "roleDecider",
+    "决策者"
+  ],
+  [
+    "roleRecipient",
+    "接受者"
+  ],
+  [
+    "painProductInitiator",
+    "产品的痛点 · 发起者"
+  ],
+  [
+    "painProductDecider",
+    "产品的痛点 · 决策者"
+  ],
+  [
+    "painProductRecipient",
+    "产品的痛点 · 接受者"
+  ],
+  [
+    "painPersonInitiator",
+    "人的痛点 · 发起者"
+  ],
+  [
+    "painPersonDecider",
+    "人的痛点 · 决策者"
+  ],
+  [
+    "painPersonRecipient",
+    "人的痛点 · 接受者"
+  ],
+  [
+    "painSocietyInitiator",
+    "社会的痛点 · 发起者"
+  ],
+  [
+    "painSocietyDecider",
+    "社会的痛点 · 决策者"
+  ],
+  [
+    "painSocietyRecipient",
+    "社会的痛点 · 接受者"
+  ]
+];
 const memoFields=[['candidate','候选行业与款式'],['scope','买家与样本边界'],['obs','趋势与竞品记录'],['risk','首批风险与准入'],['action','验证与翻案条件'],['decision','立项结论']];
 function report(blank) {
   const val=id=>blank?'待填':(byId(id).value.trim()||'待查');
-  const s=['# 亚马逊选品研究卡','',...memoFields.map(([id,label])=>label+'：'+val(id)), '', '## 市场结构与对照', ...relationshipNotes.map(([id,label])=>'- '+label+'：'+val(id)), '教学对照情境：'+(blank?'待选':selectedContext()[0]), '', '## 趋势（月序 1–12）','上年：'+val('old'),'本年：'+val('new')];
+  const s=['# 亚马逊选品研究卡','',...memoFields.map(([id,label])=>label+'：'+val(id)), '', '## 行动角色与三层痛点', ...rolePainNotes.map(([id,label])=>'- '+label+'：'+val(id)), '', '## 市场结构与对照', ...relationshipNotes.map(([id,label])=>'- '+label+'：'+val(id)), '教学对照情境：'+(blank?'待选':selectedContext()[0]), '', '## 趋势（月序 1–12）','上年：'+val('old'),'本年：'+val('new')];
   if (!blank) s.push(byId('trendResult').textContent);
   s.push('', '## 需求调研与挖掘', ...demandNotes.map(([id,label])=>'- '+label+'：'+val(id)));
   if (!blank) s.push(byId('dResult').textContent);
