@@ -2,6 +2,24 @@
   "schema_version": 1,
   "reports": [
     {
+      "id": "market-selection-fieldguide",
+      "title": "亚马逊选品研究手册 · 从行业趋势到首批测款",
+      "path": "通用选品/选品方法/market-selection-fieldguide.html",
+      "domain": "跨境电商",
+      "category": "通用选品",
+      "topic": "选品方法",
+      "tags": [
+        "亚马逊",
+        "选品",
+        "趋势调研",
+        "行业评估",
+        "利润测算"
+      ],
+      "summary": "按月对照趋势，填写八维行业评估与单款回本测算，从七类渠道整理线索并导出研究卡。",
+      "updated_at": "2026-11-26",
+      "legacy_paths": []
+    },
+    {
       "id": "amazon-us-ip-d-patent-dmca-20261123",
       "title": "亚马逊美国站 · D外观专利 vs DMCA图片版权 · 核查指南 · 2026-11-23",
       "path": "通用选品/品牌与知识产权/amazon-us-d-patent-vs-dmca-guide-20261123.html",

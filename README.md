@@ -15,7 +15,7 @@
 | 耳环 | 市场与选品、成本与利润、广告与流量 |
 | 通用选品 | 选品方法、新手带教、品牌与知识产权 |
 
-现有 20 篇报告，分为 1 个领域、4 个品类。完整元数据见 [reports.json](reports.json)。
+现有 21 篇报告，分为 1 个领域、4 个品类。完整元数据见 [reports.json](reports.json)。
 
 ## 目录结构
 
@@ -48,7 +48,7 @@
 | 喷泉 | 9 |
 | Light | 5 |
 | 耳环 | 3 |
-| 通用选品 | 3 |
+| 通用选品 | 4 |
 
 ## 跨境电商
 
@@ -132,12 +132,13 @@
 | --- | --- | --- | --- |
 | [耳环投放透视：流量从哪里来，到哪里成交](https://jesspinkmam.github.io/Amazon_Master/%E8%80%B3%E7%8E%AF/%E5%B9%BF%E5%91%8A%E4%B8%8E%E6%B5%81%E9%87%8F/amazon-earrings-ads-overview.html) | 流量渠道、转化路径、预算分配与投放节奏。 | `耳环` `广告投放` `流量渠道` | [源码](耳环/广告与流量/amazon-earrings-ads-overview.html) |
 
-### 通用选品（2 篇）
+### 通用选品（4 篇）
 
 #### 选品方法
 
 | 报告 | 内容 | 标签 | 文件 |
 | --- | --- | --- | --- |
+| [亚马逊选品研究手册 · 从行业趋势到首批测款](https://jesspinkmam.github.io/Amazon_Master/%E9%80%9A%E7%94%A8%E9%80%89%E5%93%81/%E9%80%89%E5%93%81%E6%96%B9%E6%B3%95/market-selection-fieldguide.html) | 按月对照趋势，填写八维行业评估与单款回本测算，从七类渠道整理线索并导出研究卡。 | `选品` `趋势调研` `行业评估` | [源码](通用选品/选品方法/market-selection-fieldguide.html) |
 | [亚马逊选品方法论](https://jesspinkmam.github.io/Amazon_Master/%E9%80%9A%E7%94%A8%E9%80%89%E5%93%81/%E9%80%89%E5%93%81%E6%96%B9%E6%B3%95/amazon-xuanpin-fangfalun.html) | 选品框架、案例、评分器及测款方法。 | `亚马逊` `选品` `方法论` | [源码](通用选品/选品方法/amazon-xuanpin-fangfalun.html) |
 
 #### 新手带教
